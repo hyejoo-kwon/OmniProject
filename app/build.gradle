@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -42,6 +43,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
     implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.0'
     implementation 'com.amazonaws:aws-android-sdk-cognitoauth:2.16.0'
