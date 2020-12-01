@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SocialAndroidApp</string>
+    <string name="app_name">OmniProject</string>
     <string name="write_title">Subject :</string>
     <string name="write_title_hint">Please enter a subject</string>
     <string name="write_content_hint">Please write a new post</string>
@@ -68,4 +68,6 @@
         <item>Finnish</item>
         <item>Turkish</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
