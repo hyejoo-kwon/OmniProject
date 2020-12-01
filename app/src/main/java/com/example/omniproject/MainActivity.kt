@@ -1,8 +1,6 @@
 package com.example.socialandroidapp
 
 import android.Manifest
-import android.R
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.omniproject.R
+
 
 class MainActivity : AppCompatActivity() {
     private val recyclerView: RecyclerView? = null
@@ -20,17 +20,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        CommonAction.checkSession(this, false)
+//        CommonAction.checkSession(this, false)
         checkPermission()
         val settingBtn = findViewById<Button>(R.id.setting)
         val writeBtn = findViewById<Button>(R.id.writing)
         settingBtn.setOnClickListener {
-            val intent = Intent(this@MainActivity, SettingActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this@MainActivity, SettingActivity::class.java)
+//            startActivity(intent)
         }
         writeBtn.setOnClickListener {
-            val intent = Intent(this@MainActivity, WriteActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this@MainActivity, WriteActivity::class.java)
+//            startActivity(intent)
         }
     }
 
