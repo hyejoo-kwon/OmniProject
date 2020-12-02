@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.amazonaws.mobile.client.AWSMobileClient
 
 
 class AuthMainActivity : AppCompatActivity() {
@@ -23,13 +24,19 @@ class AuthMainActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
+        // Add code here
         super.onResume()
 
-        // Add code here
+        val activityIntent = intent
+        println(activityIntent.data)
+        if (activityIntent.data != null && "omniproject" == activityIntent.data!!.scheme) {
+            if (AWSMobileClient.getInstance().handleAuthResponse(activityIntent)) CommonAction.checkSession(this, true)
+        }
     }
 
     fun openLogin(view: View?) {
         val intent = Intent(context, LoginActivity::class.java)
+        Log.d("hello", "openLogin실행")
         startActivity(intent)
     }
 
