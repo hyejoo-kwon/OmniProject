@@ -5,6 +5,7 @@ import android.content.Intent
 import android.util.Log
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.UserState
+import com.example.omniproject.CommonUtil.makeToast
 
 
 object CommonAction {

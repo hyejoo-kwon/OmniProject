@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "omniprojecta23d1a22": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
