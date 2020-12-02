@@ -28,8 +28,10 @@ class SplashActivity : AppCompatActivity() {
                 object : Callback<UserStateDetails> {
                     override fun onResult(userStateDetails: UserStateDetails) {
                         when (userStateDetails.userState) {
-                            UserState.SIGNED_IN ->                             // Open Main Activity
+                            UserState.SIGNED_IN -> {
+                                Log.e("스플래시", "처음들어왔을때")// Open Main Activity
                                 CommonAction.openMain(context!!)
+                            }
                             UserState.SIGNED_OUT -> {
                                 Log.d(TAG, "Do nothing yet")
                                 CommonAction.openAuthMain(context!!)
@@ -44,9 +46,11 @@ class SplashActivity : AppCompatActivity() {
                 })
         } else if (AWSMobileClient.getInstance().isSignedIn) {
             // Logined user
+            Log.d("처음아닐때", "로그인이 되어있어")
             CommonAction.openMain(context!!)
         } else {
             // Logouted user
+            Log.d("처음아닐때", "로그인이 안되어있어")
             CommonAction.openAuthMain(context!!)
         }
     }

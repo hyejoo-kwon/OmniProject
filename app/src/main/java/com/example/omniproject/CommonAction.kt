@@ -5,7 +5,6 @@ import android.content.Intent
 import android.util.Log
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.UserState
-import com.example.omniproject.CommonUtil.makeToast
 
 
 object CommonAction {
@@ -37,13 +36,13 @@ object CommonAction {
         AWSMobileClient.getInstance().addUserStateListener { userStateDetails ->
             when (userStateDetails.userState) {
                 UserState.SIGNED_IN -> {
-                    CommonUtil.makeToast(context, "sign in")
-                    Log.i("checkSession", "user signed in")
+//                    CommonUtil.makeToast(context, "sign in")
+                    Log.e("checkSession", "user signed in")
                     if (moveToMain) openMain(context)
                 }
                 else -> {
-                    CommonUtil.makeToast(context, "sign out")
-                    Log.i("checkSession", "unsupported")
+//                    CommonUtil.makeToast(context, "sign out")
+                    Log.e("checkSession", "unsupported")
                     openSplash(context)
                 }
             }
