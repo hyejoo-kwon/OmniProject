@@ -14,10 +14,12 @@ object CommonAction {
     }
 
     fun openAuthMain(context: Context) {
+        Log.d("hello", "CommonAction::openAuthMain 함수 실행")
         openActivityOnTop(context, AuthMainActivity::class.java)
     }
 
     fun openSplash(context: Context) {
+        Log.d("hello", "CommonAction::openSplash 함수 실행")
         openActivityOnTop(context, SplashActivity::class.java)
     }
 
@@ -32,18 +34,18 @@ object CommonAction {
 
     fun checkSession(context: Context, moveToMain: Boolean) {
         // Add code here
-//        CommonUtil.makeToast(context, "checkSession")
+        CommonUtil.makeToast(context, "checkSession")
 
         AWSMobileClient.getInstance().addUserStateListener { userStateDetails ->
             when (userStateDetails.userState) {
                 UserState.SIGNED_IN -> {
 //                    CommonUtil.makeToast(context, "sign in")
-                    Log.e("checkSession", "user signed in")
+                    Log.d("hello", "UserLogin 됨")
                     if (moveToMain) openMain(context)
                 }
                 else -> {
 //                    CommonUtil.makeToast(context, "sign out")
-                    Log.e("checkSession", "unsupported")
+                    Log.d("hello", "UserLogin 안됨")
                     openSplash(context)
                 }
             }

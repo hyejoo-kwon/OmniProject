@@ -21,6 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun _initCognito() {
         // Add code here
+        Log.d("hello", "initCognito실행")
         if (AWSMobileClient.getInstance().configuration == null) {
             // Initialize user
             AWSMobileClient.getInstance().initialize(
@@ -29,11 +30,11 @@ class SplashActivity : AppCompatActivity() {
                     override fun onResult(userStateDetails: UserStateDetails) {
                         when (userStateDetails.userState) {
                             UserState.SIGNED_IN -> {
-                                Log.e("스플래시", "처음들어왔을때")// Open Main Activity
+                                Log.e("TAG", "처음들어왔을때")// Open Main Activity
                                 CommonAction.openMain(context!!)
                             }
                             UserState.SIGNED_OUT -> {
-                                Log.d(TAG, "Do nothing yet")
+                                Log.d("hello", "initialize 로그아웃 상태")
                                 CommonAction.openAuthMain(context!!)
                             }
                             else -> AWSMobileClient.getInstance().signOut()
@@ -41,16 +42,16 @@ class SplashActivity : AppCompatActivity() {
                     }
 
                     override fun onError(e: Exception) {
-                        Log.e("INIT", e.toString())
+                        Log.e("TAG", e.toString())
                     }
                 })
         } else if (AWSMobileClient.getInstance().isSignedIn) {
             // Logined user
-            Log.d("처음아닐때", "로그인이 되어있어")
+            Log.d("hello", "moblieclient null이고 로그인")
             CommonAction.openMain(context!!)
         } else {
             // Logouted user
-            Log.d("처음아닐때", "로그인이 안되어있어")
+            Log.d("hello", "moblieclient null이고 로그아")
             CommonAction.openAuthMain(context!!)
         }
     }
